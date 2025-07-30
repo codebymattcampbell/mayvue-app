@@ -1,0 +1,53 @@
+{
+  "version": 2,
+  "dgSpecHash": "i8XNvHL3ZY4=",
+  "success": false,
+  "projectFilePath": "C:\\projects\\Dev\\mayvue-app\\SimpleWebApp.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1100",
+      "level": "Error",
+      "message": "Unable to resolve 'Microsoft.NETCore.App.Ref (= 8.0.17)' for 'net8.0'.",
+      "projectPath": "C:\\projects\\Dev\\mayvue-app\\SimpleWebApp.csproj",
+      "filePath": "C:\\projects\\Dev\\mayvue-app\\SimpleWebApp.csproj",
+      "libraryId": "Microsoft.NETCore.App.Ref",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
+    {
+      "code": "NU1100",
+      "level": "Error",
+      "message": "Unable to resolve 'Microsoft.WindowsDesktop.App.Ref (= 8.0.17)' for 'net8.0'.",
+      "projectPath": "C:\\projects\\Dev\\mayvue-app\\SimpleWebApp.csproj",
+      "filePath": "C:\\projects\\Dev\\mayvue-app\\SimpleWebApp.csproj",
+      "libraryId": "Microsoft.WindowsDesktop.App.Ref",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
+    {
+      "code": "NU1100",
+      "level": "Error",
+      "message": "Unable to resolve 'Microsoft.AspNetCore.App.Ref (= 8.0.17)' for 'net8.0'.",
+      "projectPath": "C:\\projects\\Dev\\mayvue-app\\SimpleWebApp.csproj",
+      "filePath": "C:\\projects\\Dev\\mayvue-app\\SimpleWebApp.csproj",
+      "libraryId": "Microsoft.AspNetCore.App.Ref",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    },
+    {
+      "code": "NU1100",
+      "level": "Error",
+      "message": "Unable to resolve 'Microsoft.NETCore.App.Host.win-x64 (= 8.0.17)' for 'net8.0'.",
+      "projectPath": "C:\\projects\\Dev\\mayvue-app\\SimpleWebApp.csproj",
+      "filePath": "C:\\projects\\Dev\\mayvue-app\\SimpleWebApp.csproj",
+      "libraryId": "Microsoft.NETCore.App.Host.win-x64",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
+}
