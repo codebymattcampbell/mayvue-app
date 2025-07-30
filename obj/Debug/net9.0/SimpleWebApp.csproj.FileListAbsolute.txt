@@ -1,0 +1,6 @@
+C:\projects\Dev\mayvue-app\obj\Debug\net9.0\rpswa.dswa.cache.json
+C:\projects\Dev\mayvue-app\obj\Debug\net9.0\SimpleWebApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\projects\Dev\mayvue-app\obj\Debug\net9.0\SimpleWebApp.AssemblyInfoInputs.cache
+C:\projects\Dev\mayvue-app\obj\Debug\net9.0\SimpleWebApp.AssemblyInfo.cs
+C:\projects\Dev\mayvue-app\obj\Debug\net9.0\SimpleWebApp.csproj.CoreCompileInputs.cache
+C:\projects\Dev\mayvue-app\obj\Debug\net9.0\SimpleWebApp.MvcApplicationPartsAssemblyInfo.cache
