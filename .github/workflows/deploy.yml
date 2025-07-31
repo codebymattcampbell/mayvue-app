@@ -1,0 +1,62 @@
+# Example of a GitHub Actions workflow for Blue/Green deployment
+# This workflow deploys a web application to a Green server, performs a health check,
+# and swaps the traffic to the Green server. It also includes an optional step to deploy to a Blue server for rollback purposes.
+
+name: Blue/Green Rolling Deploy
+
+on:
+  workflow_dispatch:
+
+jobs:
+  blue-green-deploy:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Download published app artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: published-app
+          path: ./published
+
+      - name: Deploy to Green Server
+        shell: pwsh
+        run: |
+          $greenPath = 'C:\inetpub\wwwroot\SimpleWebApp-Green'
+          if (Test-Path $greenPath) {
+            Remove-Item -Recurse -Force $greenPath\*
+          } else {
+            New-Item -ItemType Directory -Path $greenPath
+          }
+          Copy-Item -Path './published/*' -Destination $greenPath -Recurse
+          Import-Module WebAdministration
+          Restart-WebAppPool -Name 'GreenAppPool'
+
+      - name: Health check Green Server
+        shell: pwsh
+        run: |
+          $response = Invoke-WebRequest -Uri 'http://localhost:8081' -UseBasicParsing
+          if ($response.StatusCode -ne 200) { throw 'Green server health check failed.' }
+
+      - name: Swap Blue/Green Servers
+        shell: pwsh
+        run: |
+          # Example: Swap IIS bindings or DNS to point traffic to Green server
+          # This is a placeholder. Implement your own swap logic here.
+          Write-Host 'Swapping Blue/Green server...'
+          # Example: Set IIS binding for production to Green server
+
+      - name: Deploy to Blue server (optional, for rollback)
+        shell: pwsh
+        run: |
+          $bluePath = 'C:\inetpub\wwwroot\SimpleWebApp-Blue'
+          if (Test-Path $bluePath) {
+            Remove-Item -Recurse -Force $bluePath\*
+          } else {
+            New-Item -ItemType Directory -Path $bluePath
+          }
+          Copy-Item -Path './published/*' -Destination $bluePath -Recurse
+          Import-Module WebAdministration
+          Restart-WebAppPool -Name 'BlueAppPool'
