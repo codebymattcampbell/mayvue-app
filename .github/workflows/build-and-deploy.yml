@@ -1,0 +1,32 @@
+name: Build and Simulate Deploy to IIS
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup .NET 8 SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore dependencies
+        run: dotnet restore ./SimpleWebApp/SimpleWebApp.csproj
+
+      - name: Build app
+        run: dotnet build ./SimpleWebApp/SimpleWebApp.csproj --configuration Release --no-restore
+
+      - name: Publish app
+        run: dotnet publish ./SimpleWebApp/SimpleWebApp.csproj --configuration Release --output ./published
+
+    #   - name: Run Terraform Simulation
+    #     run: |
+    #       terraform init
+    #       terraform apply -auto-approve
