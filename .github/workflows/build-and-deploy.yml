@@ -1,11 +1,11 @@
-name: Build and Publish to Repo
+name: Build and Simulate Deploy to IIS
 
 on:
   push:
     branches: [ main ]
 
 jobs:
-  build-and-publish:
+  build-and-deploy:
     runs-on: windows-latest
 
     steps:
@@ -27,7 +27,7 @@ jobs:
         run: dotnet publish SimpleWebApp.csproj --configuration Release --output ./published
 
       - name: Upload published app artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
           name: published-app
           path: ./published
