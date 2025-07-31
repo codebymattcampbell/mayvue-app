@@ -20,6 +20,14 @@ jobs:
       - name: Restore dependencies
         run: dotnet restore SimpleWebApp.csproj
 
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: csharp
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
+
       - name: Build app
         run: dotnet build SimpleWebApp.csproj --configuration Release --no-restore
 
