@@ -1,11 +1,11 @@
-name: Build and Simulate Deploy to IIS
+name: Build and Publish to Repo
 
 on:
   push:
     branches: [ main ]
 
 jobs:
-  build-and-deploy:
+  build-and-publish:
     runs-on: windows-latest
 
     steps:
