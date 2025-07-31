@@ -32,7 +32,20 @@ jobs:
           name: published-app
           path: ./published
 
-    #   - name: Run Terraform Simulation
-    #     run: |
-    #       terraform init
-    #       terraform apply -auto-approve
+          
+      # Following is an example of how to deploy to IIS, commented out for now
+     
+
+      # - name: Deploy to IIS
+      #   shell: pwsh
+      #   run: |
+      #     $iisPath = 'C:\inetpub\wwwroot\SimpleWebApp'
+      #     if (Test-Path $iisPath) {
+      #       Remove-Item -Recurse -Force $iisPath\*
+      #     } else {
+      #       New-Item -ItemType Directory -Path $iisPath
+      #     }
+      #     Copy-Item -Path './published/*' -Destination $iisPath -Recurse
+      #     Import-Module WebAdministration
+      #     Restart-WebAppPool -Name 'DefaultAppPool'
+
