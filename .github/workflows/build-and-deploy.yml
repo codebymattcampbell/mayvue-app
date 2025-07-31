@@ -18,13 +18,13 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Restore dependencies
-        run: dotnet restore ./SimpleWebApp/SimpleWebApp.csproj
+        run: dotnet restore SimpleWebApp.csproj
 
       - name: Build app
-        run: dotnet build ./SimpleWebApp/SimpleWebApp.csproj --configuration Release --no-restore
+        run: dotnet build SimpleWebApp.csproj --configuration Release --no-restore
 
       - name: Publish app
-        run: dotnet publish ./SimpleWebApp/SimpleWebApp.csproj --configuration Release --output ./published
+        run: dotnet publish SimpleWebApp.csproj --configuration Release --output ./published
 
     #   - name: Run Terraform Simulation
     #     run: |
