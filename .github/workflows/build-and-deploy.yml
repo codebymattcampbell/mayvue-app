@@ -26,6 +26,12 @@ jobs:
       - name: Publish app
         run: dotnet publish SimpleWebApp.csproj --configuration Release --output ./published
 
+      - name: Upload published app artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: published-app
+          path: ./published
+
     #   - name: Run Terraform Simulation
     #     run: |
     #       terraform init
